@@ -1,0 +1,30 @@
+<app-header></app-header>
+<h1 style="text-align:center;">Upload your videos here....</h1>
+
+<div style="text-align: center;">
+    <form>
+        <div>
+            <input #singleInput type="file" name="video" (change)="selectVideo($event)">
+        </div>
+        <br>
+        <div>
+            <button type="submit" (click)="onSubmit()" >Upload</button>
+        </div>
+
+<ng-template [ngIf]="displayVideo" [ngIfElse]="elseVideoTemplate">
+    <div>Video uploaded</div>
+    <ul>
+         <li *ngFor="let video of  displayVideoArray">
+            <!-- <video src="http://localhost:3000/{{video}}"/> -->
+            <video controls><source src="http://localhost:3000/{{video}}" /></video>
+         </li>
+
+    </ul>
+</ng-template>
+<ng-template #elseVideoTemplate>
+    <br/><br/>
+    <div>Please upload some videos</div>
+
+</ng-template>
+    </form>
+</div>
