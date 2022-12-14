@@ -36,24 +36,22 @@ export class LoginComponent implements OnInit {
     else{
      var logindata = this.loginForm.value;
      this._auth.loginUser(logindata)
-
 .subscribe (data=>{
-  if(data.message="success"){
+  console.log("data.message",data);
+  if(data.message==="success"){
     console.log("userset in login.ts:",data.catogery)
-            Swal.fire('Thank you...', 'Loged In succesfully!', 'success')
+    console.log("username in login.ts:",data.username)
+            Swal.fire('Thank you '+data.username, 'Loged In succesfully!', 'success')
             localStorage.setItem('token',data.token);
-            localStorage.setItem('currentUser', data.catogery);
-            localStorage.setItem("user",data.catogery)
+            localStorage.setItem('currentUser',data.catogery);
+            localStorage.setItem("user",data.catogery);
+            localStorage.setItem("username",data.username);
     
     this.router.navigate(['/video'])     
  
    }
-   else 
-   {  
-     Swal.fire('Sorry...', 'something went wrong', 'error')
-     }
-   }
-
+  }
+   , ()=> {Swal.fire('Sorry...', 'something went wrong', 'error')}
 )
 
 

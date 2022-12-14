@@ -6,6 +6,8 @@ import { SignupComponent } from './signup/signup.component';
 import { UploadComponent } from './upload/upload.component';
 import { UserDetailsComponent} from './user-details/user-details.component'
 import {VideoComponent} from './video/video.component'
+import {VideoPlayingComponent} from './video-playing/video-playing.component'
+import {IssuesComponent} from './issues/issues.component'
 const routes: Routes = [
   {path:'',
   redirectTo:'/login',
@@ -23,7 +25,15 @@ const routes: Routes = [
   canActivate:[AuthGuard]},
   {path:'upload',
   component:UploadComponent,
-  canActivate:[AuthGuard]}
+  canActivate:[AuthGuard]},
+  {path:'videoPlaying',
+  component:VideoPlayingComponent,
+  canActivate:[AuthGuard]
+  },
+  {path:'issues',
+  component:IssuesComponent,
+  canActivate:[AuthGuard]
+  }
 
 
 ];

@@ -90,37 +90,26 @@ router.post("/signup", (req, res, next) =>{
       }); 
     
     })
-//     .catch(err =>{  
-//       res.status(500).json({  
-//         error: err  
-//       });  
-//     });  
-  // });  
-
-  //  })
-
  
-
-
-
-
 // login
 
 router.post("/login", (req, res, next) => {
   let fetchedUser;
 
   user.findOne({email:req.body.email}).then(user=>{
+    console.log("user in login",req.body)
     if(!user){
       return res.status(401).json({
         message: "Auth failed no such user"
       })
     }
     fetchedUser=user;
+    console.log("feteched user is:",fetchedUser)
     return bcrypt.compare(req.body.password, user.password);
   })
 
   .then((result)=>{
-    console.log(fetchedUser)
+    // console.log("feteched user is:",fetchedUser)
     if(!result){
       return res.status(401).json({
         message: "Auth failed inccorect password"
@@ -130,11 +119,16 @@ router.post("/login", (req, res, next) => {
       // let payload ={subject:user._id}
       let payload = { subject: req.body.email + req.body.password };
       let token = jwt.sign(payload,'secret_key')
+      let message="success"
       // let user = req.body.Role
       console.log("token in login",token)
+      console.log("username in login",fetchedUser.username)
       console.log("role in login:",fetchedUser.role)
       let catogery =fetchedUser.role
-      res.status(200).send({token,catogery})
+       let username = fetchedUser.username
+       
+      res.status(200).
+        send({token,catogery,username,message})
       // res.status(200).send(fetchedUser)
     }
   })
@@ -151,7 +145,7 @@ router.get("/userlist",verifyToken,(req,res)=>{
 });
 
 
-router.put("/userlist/rolechangeadmin",(req,res)=>{
+router.put("/userlist/rolechangeadmin",verifyToken,(req,res)=>{
   const id = req.body.id;
 user.findOneAndUpdate({_id:id}, { $set: {role:"admin"} })
 .then(function(users){

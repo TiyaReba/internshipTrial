@@ -1,2 +1,28 @@
 <app-header></app-header>
-<p>Let's celebrate the beauty of the world together!!!!!!!!!!!</p>
+<h1>Let's celebrate the beauty of the world together!!!!!!!!!!!</h1>
+<br>
+<br>
+
+<div class="container mt-3">
+<div class="row">
+   <!-- <div class="col-md-4" *ngFor="let title of  titleArray"> -->
+         <div class="col-md-4" *ngFor="let item of  videofile"> 
+         <div class="card" style="width:400px;"> 
+   
+            <p class="card-text">{{item.title}}</p> 
+            <!-- <video controls><source src="http://localhost:3000/{{item.videoName}}" class="card-img-top" /></video> -->
+      <img src="http://localhost:3000/{{item.imageName}}" class="card-img-top" alt="error" (click)="ImageClick(item)"/>
+
+      <div class="card-body">
+         <!-- <div class="col-md-4" *ngFor="let item of displayVideoArray"> -->
+       
+      <!-- </div> -->
+        <p class="card-text">{{item.dis}}</p>
+      <button  *ngIf="_authservice.loggedIn()&&getloguser()" (click)="deleteVideo(item)">Delete</button>
+      <button (click)="ImageClick(item)" class="play">Play Video</button>
+      </div>
+    </div>
+</div>
+</div>
+</div>
+<!-- </div> -->

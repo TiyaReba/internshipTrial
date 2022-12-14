@@ -1,30 +1,68 @@
 <app-header></app-header>
 <h1 style="text-align:center;">Upload your videos here....</h1>
-
-<div style="text-align: center;">
-    <form>
-        <div>
-            <input #singleInput type="file" name="video" (change)="selectVideo($event)">
+<div class="wrapper">
+<br>
+<div>
+    <form #streamingForm="ngForm" enctype="multipart/form-data" (ngSubmit)="streamingForm.form.valid && onSubmit(streamingForm)">
+        <div class="mb-3">
+            <input type="text" class="form-control" placeholder= "Enter the title" name="title" [(ngModel)]="uploadForm.title"  #title="ngModel" required popupHeight='50px' popupWidth = '50px' >
+            <small class="form-text text-muted" *ngIf="title.touched && !title.valid" class="form-label text-danger">Enter title</small>
+          </div>
+<!--video Upload  -->
+          <div class="mb-3">
+            <label for="video" class="form-label">Upload Video</label>&nbsp;
+            <input class="form-control" #singleInput type="file" name="video" [(ngModel)]="uploadForm.videos" #videos="ngModel" required (change)=" selectVideo($event)">
+            <small class="form-text text-muted" *ngIf="videos.touched && !videos.valid" class="form-label text-danger">Upload Video</small>
         </div>
-        <br>
-        <div>
-            <button type="submit" (click)="onSubmit()" >Upload</button>
-        </div>
-
-<ng-template [ngIf]="displayVideo" [ngIfElse]="elseVideoTemplate">
-    <div>Video uploaded</div>
-    <ul>
-         <li *ngFor="let video of  displayVideoArray">
-            <!-- <video src="http://localhost:3000/{{video}}"/> -->
-            <video controls><source src="http://localhost:3000/{{video}}" /></video>
-         </li>
-
-    </ul>
-</ng-template>
-<ng-template #elseVideoTemplate>
-    <br/><br/>
-    <div>Please upload some videos</div>
-
-</ng-template>
-    </form>
+<!-- image upload -->
+        <div class="mb-3"> 
+            <label class="form-label">Upload Thumbnail</label>
+            <input class="form-control" #singleInput type="file" name="thumbnail" [(ngModel)]="uploadForm.image" #image="ngModel" required (change)="selectImage($event)">
+            <small class="form-text text-muted" *ngIf="image.touched && !image.valid" class="form-label text-danger">Upload Image</small>
+          </div>
+<!-- subtitle Upload -->
+<div class="mb-3">
+    <label  class="form-label">Choose a subtitle</label>&nbsp;
+    <input class="form-control" #singleInput type="file" name="subitle"  [(ngModel)]="uploadForm.subTitle" #subtitle="ngModel" required (change)="selectSubTitle($event)">
+    <small class="form-text text-muted" *ngIf="subTitle.touched && !subTitle.valid" class="form-label text-danger">Enter subtitle</small>
 </div>
+
+<!-- discription -->
+<div class="mb-3">
+    <input type="text" class="form-control" placeholder= "Enter the Discription" name="dis" [(ngModel)]="uploadForm.dis" #dis="ngModel" required popupHeight='50px' popupWidth = '50px' >
+    <small class="form-text text-muted" *ngIf="dis.touched && !dis.valid" class="form-label text-danger">Enter title</small>
+  </div>
+            
+          <div style="justify-content:centre;">
+        <!-- <button type="submit" (click)="onSubmit()" >Upload</button> -->
+        <button type="submit" ><i class="fa-solid fa-arrow-up-from-bracket"></i></button>
+    </div>
+</form> 
+</div>
+</div>
+
+     <!-- <ng-template [ngIf]="displayVideo" [ngIfElse]="elseVideoTemplate">
+        <div>Video uploaded</div>
+        <ul>
+             <li *ngFor="let video of  displayVideoArray">
+          
+                <video controls><source src="http://localhost:3000/{{video}}" /></video>
+             </li>
+        </ul>  
+        <br> 
+        <div class="mb-3">
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Select category</option>
+                <option value="movies">Movies</option>
+                <option value="sports">Sports</option>
+                <option value="music">Music</option>
+                <option value="gaming">Gaming</option>
+            </select>
+        </div>
+    </ng-template>
+    <ng-template #elseVideoTemplate>
+        <br/><br/>
+        <div>Please upload some videos</div>
+    
+    </ng-template> -->
+  

@@ -1,0 +1,12 @@
+video{
+    width: 400px;
+    height:400px;
+    
+}
+.card-text{
+    text-align: center;
+    font-weight: 700;
+    font-variant-caps: all-small-caps;
+    font-size: larger;
+    color: rgb(40, 2, 37);
+}

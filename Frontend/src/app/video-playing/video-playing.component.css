@@ -1,0 +1,13 @@
+video{
+    width: 400px;
+    height:400px;
+    
+}
+.card-style{
+    margin-left: 500px;
+    /* padding-left: 10px; */
+}
+ngb-rating{
+    color: #FFC107;
+    font-size: 30px;
+}

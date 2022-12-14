@@ -28,6 +28,10 @@ import { UploadComponent } from './upload/upload.component';
 import { HeaderComponent } from './header/header.component';
 import { AuthGuard } from './auth.guard';
 import { UserService } from './user.service';
+import { VideoPlayingComponent } from './video-playing/video-playing.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { IssuesComponent } from './issues/issues.component';
+
 
 @NgModule({
   declarations: [
@@ -39,6 +43,8 @@ import { UserService } from './user.service';
     SadminComponent,
     UploadComponent,
     HeaderComponent,
+    VideoPlayingComponent,
+    IssuesComponent,
     
   ],
   imports: [
@@ -58,7 +64,8 @@ import { UserService } from './user.service';
      MatIconModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgbModule
     
   ],
   providers: [AuthService,AuthGuard,UserService,

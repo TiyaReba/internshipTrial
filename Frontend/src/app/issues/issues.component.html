@@ -1,0 +1,15 @@
+<app-header></app-header>
+    
+<p>All reported videos are here</p>
+<div class="container mt-3">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let item of  videofile"> 
+            <div class="card" style="width:400px;"> 
+        
+      
+            <video controls><source src="http://localhost:3000/{{item.videoName}}"/></video>
+            
+        </div>
+    </div>
+</div>
+</div>
