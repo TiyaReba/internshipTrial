@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Josefin+Sans&display=swap');
-
+.card{
+    text-align: center;
+    border: none;
+}
+.card-body h3{
+    font-size:1.2rem ;
+    color: #718ee4;
+}
 #trainer{
     width: 20%;
     height :20%
@@ -46,11 +53,21 @@ body {
     box-shadow: 13px 12px 5px -10px rgba(196, 194, 196, 0.72)
 }
 
-.col-md-3 {
-    margin-top: 10px
+/* .col-md-3 {
+    margin-top: 10px;
+   
+} */
+.col-md-4 {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    /* border-style: dashed;
+    border-width: 2px;
+    border-color: grey;
+    */
 }
 
 
+/* 
 .height {
     height: 100vh
 }
@@ -62,9 +79,9 @@ body {
 
 .left-pan {
     padding-left: 7px
-}
+} */
 
-.form-control {
+/* .form-control {
     height: 55px;
      text-indent: 33px; 
     border-radius: 10px;
@@ -75,12 +92,12 @@ body {
      margin-left: 70%;
      margin-top: 3px;
     
-}
+} */
 
-.form-control:focus {
+/* .form-control:focus {
     box-shadow: rgb(4, 4, 235);
     border: rgb(9, 1, 15);
-}
+} */
 
 button{
     padding: 12px 20px;
@@ -88,15 +105,19 @@ button{
     border: none;
     color: white;
     border-radius: 30px;
-    font-size: 16px;
+    font-size: .75rem;
     text-decoration: none;
-    
-    
+    /* max-width: 10vw; */
+    /* display: inline-block; */
     transition: all .3s ease-in;
+
    
     }
     button:hover{
     background: transparent;
     color: #0804f5;
-    border: 2px solid #cec7cb;
+    /* width: .2rem; */
+    /* height: 1rem; */
+    border-radius: 35px;
+    /* border: 2px solid #cec7cb; */
     }

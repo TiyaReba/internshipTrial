@@ -2,19 +2,31 @@
         text-align: center;
         color: blue;
     }
-    img{
+    card-img-top{
+        
         width: 400px;
         height:400px;
+        /* background-size: contain; */
+        padding: 0px;
+        border: none;
     }
-video{
+/* video{
     width: 400px;
     height:400px;
     
+} */
+.col-md-4{
+    width: 400px;
+}
+.card{
+    text-align: center;
+    /* border: none; */
+    /* background-size: contain; */
 }
 .card-text{
-    text-align: center;
+    text-align: left;
     font-weight: 700;
-    font-variant-caps: all-small-caps;
+    /* font-variant-caps: all-small-caps; */
     font-size: larger;
     color: rgb(40, 2, 37);
 }

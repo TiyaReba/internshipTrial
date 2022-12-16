@@ -7,9 +7,10 @@
 <div class="row">
    <!-- <div class="col-md-4" *ngFor="let title of  titleArray"> -->
          <div class="col-md-4" *ngFor="let item of  videofile"> 
-         <div class="card" style="width:400px;"> 
+            <!-- <div class="shadow p-3 mb-5 bg-body rounded"> -->
+         <div class="card" class="shadow p-3 mb-5 bg-body rounded" style="width:400px;"> 
    
-            <p class="card-text">{{item.title}}</p> 
+            
             <!-- <video controls><source src="http://localhost:3000/{{item.videoName}}" class="card-img-top" /></video> -->
       <img src="http://localhost:3000/{{item.imageName}}" class="card-img-top" alt="error" (click)="ImageClick(item)"/>
 
@@ -17,7 +18,8 @@
          <!-- <div class="col-md-4" *ngFor="let item of displayVideoArray"> -->
        
       <!-- </div> -->
-        <p class="card-text">{{item.dis}}</p>
+      <p class="card-text">Title: {{item.title}}</p> 
+        <p class="card-text">Discription: {{item.dis}}</p>
       <button  *ngIf="_authservice.loggedIn()&&getloguser()" (click)="deleteVideo(item)">Delete</button>
       <button (click)="ImageClick(item)" class="play">Play Video</button>
       </div>
